@@ -1,0 +1,31 @@
+.loginForm {
+  background-color: whitesmoke;
+  border-radius: 10px;
+  position: absolute;
+  top: 2%;
+  left: 70%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.form{
+  margin: 5px;
+}
+.inputText{
+  border-radius: 5px;
+}
+.buttons{
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0 10px 0;
+  
+}
+.button {
+  border-radius: 2px;
+  color: white;
+}
+.cancel {
+  background-color: red;
+}
+
+.signin {
+  background-color: royalblue;
+}
