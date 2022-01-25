@@ -37,10 +37,27 @@ const skillMock = {
       name: 'C++',
       value: '80',
     },
-    
   ],
 };
 
+const workMock = {
+  work: [
+    {
+      company: 'Jala',
+      title: 'Trainer',
+      years: 'November 2021 - Present',
+      description:
+        'Full stack training, learning C#, javascript and React',
+    },
+    {
+      company: 'Sony music',
+      title: 'Singer',
+      years: 'March 2003 - February 2013',
+      description:
+        'A Puerto Rican reggaeton duo consisting of Wisin and Yandel.',
+    },
+  ],
+};
 
 const socialMock = {
   social: [
@@ -72,4 +89,4 @@ const socialMock = {
   ],
 };
 
-export { navigationMock, profileMock, socialMock, skillMock };
+export { navigationMock, profileMock, socialMock, skillMock, workMock };

@@ -37,8 +37,8 @@ function Header(navigation) {
           </li>
 
           <li>
-            <a className="smoothscroll" href="#resume">
-              Resume
+            <a className="smoothscroll" href="#WorkExperience">
+              Experience
             </a>
           </li>
 
