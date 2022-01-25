@@ -2,9 +2,7 @@
   background-color: whitesmoke;
   border-radius: 10px;
   position: absolute;
-  top: 2%;
-  left: 70%;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  top: 110%;
 }
 .form{
   margin: 5px;
@@ -19,7 +17,7 @@
   
 }
 .button {
-  border-radius: 2px;
+  border-radius: 12px;
   color: white;
 }
 .cancel {
@@ -28,4 +26,9 @@
 
 .signin {
   background-color: royalblue;
+}
+.tittleForm{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bolder;
+  
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Fade } from '@stahl.luke/react-reveal';
 import ParticlesBg from 'particles-bg';
+import Login from '../../pages/loggin/Login';
 
 function Header(navigation) {
   const { project, github, name, description } = navigation;
@@ -30,6 +31,12 @@ function Header(navigation) {
           </li>
 
           <li>
+            <a className="smoothscroll" href="#skill">
+              Skills
+            </a>
+          </li>
+
+          <li>
             <a className="smoothscroll" href="#resume">
               Resume
             </a>
@@ -45,6 +52,10 @@ function Header(navigation) {
             <a className="smoothscroll" href="#contact">
               Contact
             </a>
+          </li>
+
+          <li>
+            <Login />
           </li>
         </ul>
       </nav>

@@ -1,14 +1,27 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
+import { Fade } from '@stahl.luke/react-reveal';
 
-function Skill() {
+import ProgressBar from './progress.jsx';
+import './StyleSkill.css';
+function Skill(props) {
+  const skillList = props.skills.map(skill => {
+    return (
+      <li key={skill.name}>
+        <ProgressBar value={parseInt(skill.value)} text={skill.name} />
+      </li>
+    );
+  });
+
   return (
-    <div className="skill">
-      <h1>Skill</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur,
-        quisquam.
-      </p>
-    </div>
+    <>
+      <section id="skill" className="skillsSection nine">
+        <Fade duration={1000}>
+          <h1 className="h1-Text">Dev skills</h1>
+          <ul className="skillList">{skillList}</ul>
+        </Fade>
+      </section>
+    </>
   );
 }
 

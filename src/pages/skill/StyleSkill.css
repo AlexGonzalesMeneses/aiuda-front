@@ -1,0 +1,15 @@
+.skillsSection {
+  box-sizing: border-box;
+  font-size: 45px;
+  text-align: center;
+  color: whitesmoke;
+}
+.skillList{
+  display: flex;
+  flex-direction: column;
+  padding-right: 25%;
+  align-items:flex-end;
+}
+.h1-Text{
+  color: aliceblue;
+}
