@@ -1,45 +1,55 @@
+/* eslint-disable no-unused-vars */
+import { func } from 'prop-types';
 import React, { useState } from 'react';
 import './StyleLogin.css';
 
-function Loggin() {
+function Login() {
+  const acceptedUserName = 'wisin@yandel.com';
+  const acceptedPassword = 'asd';
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [condition, setCondition] = useState(true);
-  function showHide() {
+  const [condition, setCondition] = useState(false);
+
+  function toogleLoginForm() {
     setCondition(!condition);
     if (condition == false) {
-      cancel();
+      reset();
     }
   }
   function handleSubmit() {
-    console.log(username);
-    console.log(password);
+    if (username == acceptedUserName && acceptedPassword == password) {
+      alert('Welcome Wisin y Yandel');
+    } else {
+      alert('Acces deny');
+    }
   }
-  function cancel() {
+  function reset() {
     setUsername('');
     setPassword('');
   }
   const form = (
     <>
-      <div className='loginForm'>
-        <form onSubmit={handleSubmit} className='form'>
-          <p><b>Email address</b></p>
-          <input className='inputText'
+      <div className="loginForm">
+        <form onSubmit={handleSubmit} className="form">
+          <h3 className="tittleForm">Email address</h3>
+          <input
+            className="inputText"
             type="text"
             value={username}
             placeholder="email@example.com"
             onChange={({ target }) => setUsername(target.value)}
           />
-          <p><b>Password</b></p>
-          <input className='inputText'
+          <h3 className="tittleForm">Password</h3>
+          <input
+            className="inputText"
             type="password"
             value={password}
             placeholder="Password"
             onChange={({ target }) => setPassword(target.value)}
           />
         </form>
-        <div className='buttons'>
-          <button onClick={cancel} className="button cancel">
+        <div className="buttons">
+          <button onClick={toogleLoginForm} className="button cancel">
             Cancel
           </button>
           <button onClick={handleSubmit} className="button signin">
@@ -52,10 +62,10 @@ function Loggin() {
 
   return (
     <div className="loggin">
-      <button onClick={showHide}>Login</button>
+      <button onClick={toogleLoginForm}>🔑 Login</button>
       {condition ? form : null}
     </div>
   );
 }
 
-export default Loggin;
+export default Login;

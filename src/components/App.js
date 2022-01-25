@@ -5,11 +5,13 @@ import {
   navigationMock,
   profileMock,
   socialMock,
+  skillMock,
 } from '../../tools/MockData';
 import About from '../pages/about/About';
 import Header from './layouts/Header';
 import Footer from './layouts/Footer';
 import Contact from '../pages/contact/Contact';
+import Skill from '../pages/skill/Skill';
 
 function App() {
   initialize('UA-170984824-1');
@@ -20,6 +22,7 @@ function App() {
       <Header {...navigationMock} />
       <About {...profileMock} />
       <Contact {...formMock} />
+      <Skill {...skillMock} />
       <Footer {...socialMock} />
     </div>
   );

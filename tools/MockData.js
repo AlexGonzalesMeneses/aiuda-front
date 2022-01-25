@@ -19,6 +19,26 @@ const profileMock = {
   email: 'wisinYandel@mail.com',
   resumeDownload: 'www.google.com',
 };
+const skillMock = {
+  skills: [
+    {
+      name: 'Python',
+      value: '80',
+    },
+    {
+      name: 'Matlab',
+      value: '50',
+    },
+    {
+      name: 'C',
+      value: '70',
+    },
+    {
+      name: 'C++',
+      value: '80',
+    },
+  ],
+};
 
 const socialMock = {
   social: [
@@ -60,4 +80,4 @@ const formMock = {
   email: 'wisin_yandel@mail.com',
 };
 
-export { navigationMock, profileMock, socialMock, formMock };
+export { navigationMock, profileMock, socialMock, skillMock, formMock };
