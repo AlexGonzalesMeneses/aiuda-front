@@ -37,10 +37,8 @@ const skillMock = {
       name: 'C++',
       value: '80',
     },
-    
   ],
 };
-
 
 const socialMock = {
   social: [
@@ -72,4 +70,81 @@ const socialMock = {
   ],
 };
 
-export { navigationMock, profileMock, socialMock, skillMock };
+const portafolioMock = {
+  projects: [
+    {
+      title: 'Canadian Wanderlust',
+      category: 'My Travel Blog for my post-university travels',
+      image: 'https://i.imgur.com/qkdpN.png',
+      url: 'https://www.canadianwanderlust.com',
+    },
+    {
+      title: 'Fury Fighting Gear',
+      category: '(offline now) A fighting gear company I started',
+      image: 'https://i.imgur.com/qkdpN.png',
+      url: 'http://www.timbakerdev.com',
+    },
+    {
+      title: 'Original Thai Food',
+      category: 'Website I built for a restaurant I like in Thailand',
+      image: 'https://i.imgur.com/qkdpN.png',
+      url: 'http://www.timbakerdev.com/originalthaifood.github.io',
+    },
+    {
+      title: 'Resume Website',
+      category: 'A React based resume website template',
+      image: 'https://i.imgur.com/qkdpN.png',
+      url: 'http://www.timbakerdev.com',
+    },
+    {
+      title: 'Smirkspace',
+      category: '(MVP Only) A React and Meteor based chat University project.',
+      image: 'https://i.imgur.com/qkdpN.png',
+      url: 'http://www.smirkspace.com',
+    },
+    {
+      title: 'Canadian Wanderlust',
+      category: 'My Travel Blog for my post-university travels',
+      image: 'https://i.imgur.com/qkdpN.png',
+      url: 'https://www.canadianwanderlust.com',
+    },
+    {
+      title: 'Fury Fighting Gear',
+      category: '(offline now) A fighting gear company I started',
+      image: 'https://i.imgur.com/qkdpN.png',
+      url: 'http://www.timbakerdev.com',
+    },
+    {
+      title: 'Original Thai Food',
+      category: 'Website I built for a restaurant I like in Thailand',
+      image: 'https://i.imgur.com/qkdpN.png',
+      url: 'http://www.timbakerdev.com/originalthaifood.github.io',
+    },
+    {
+      title: 'Original Thai Food',
+      category: 'Website I built for a restaurant I like in Thailand',
+      image: 'https://i.imgur.com/qkdpN.png',
+      url: 'http://www.timbakerdev.com/originalthaifood.github.io',
+    },
+    {
+      title: 'Resume Website',
+      category: 'A React based resume website template',
+      image: 'https://i.imgur.com/qkdpN.png',
+      url: 'http://www.timbakerdev.com',
+    },
+    {
+      title: 'Smirkspace',
+      category: '(MVP Only) A React and Meteor based chat University project.',
+      image: 'https://i.imgur.com/qkdpN.png',
+      url: 'http://www.smirkspace.com',
+    },
+    {
+      title: 'Canadian Wanderlust',
+      category: 'My Travel Blog for my post-university travels',
+      image: 'https://i.imgur.com/qkdpN.png',
+      url: 'https://www.canadianwanderlust.com',
+    },
+  ],
+};
+
+export { navigationMock, profileMock, socialMock, skillMock, portafolioMock };
