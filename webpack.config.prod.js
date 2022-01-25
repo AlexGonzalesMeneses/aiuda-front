@@ -9,8 +9,13 @@ process.env.NODE_ENV = 'production';
 module.exports = {
   mode: 'production',
   target: 'web',
-  devtool: 'source-map',
+  devtool: 'inline-source-map',
   entry: './src/index',
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000,
+  },
   output: {
     path: path.resolve(__dirname, 'build'),
     publicPath: '/',
@@ -30,7 +35,7 @@ module.exports = {
       'process.env.API_URL': JSON.stringify('http://localhost:3001'),
     }),
     new HtmlWebpackPlugin({
-      template: 'src/index.html',
+      template: 'public/index.html',
       minify: {
         // see https://github.com/kangax/html-minifier#options-quick-reference
         removeComments: true,
