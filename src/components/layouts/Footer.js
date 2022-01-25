@@ -1,11 +1,12 @@
 import React from 'react';
 import { Fade } from '@stahl.luke/react-reveal';
 
-function Footer(network) {
-  const networks = network.social.map(network => (
-    <li key={network.name}>
-      <a href={network.url}>
-        <i className={network.className}></i>
+function Footer(networkSocial) {
+  const { social } = networkSocial;
+  const networks = social.map(({ name, url, className }) => (
+    <li key={name}>
+      <a href={url}>
+        <i className={className}></i>
       </a>
     </li>
   ));
