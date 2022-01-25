@@ -1,7 +1,5 @@
 import React from 'react';
 import { render } from 'react-dom';
-// import App from './components/App';
-import Loggin from './pages/loggin/Loggin';
-import './index.css';
+import App from './components/App';
 
-render(<Loggin />, document.getElementById('app'));
+render(<App />, document.getElementById('root'));
