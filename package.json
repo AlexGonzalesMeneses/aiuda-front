@@ -20,6 +20,7 @@
   "license": "ISC",
   "dependencies": {
     "@stahl.luke/react-reveal": "^1.2.3",
+    "emailjs-com": "^3.2.0",
     "immer": "^9.0.12",
     "particles-bg": "^2.5.5",
     "prop-types": "^15.8.1",

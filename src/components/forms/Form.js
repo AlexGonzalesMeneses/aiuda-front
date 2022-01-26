@@ -1,103 +1,85 @@
-import React, { useState } from 'react';
+/* eslint-disable import/no-named-as-default-member */
+import React from 'react';
 import { Slide } from '@stahl.luke/react-reveal';
+import emailjs from 'emailjs-com';
 
 function Form() {
-  const [nameValue, setNameValue] = useState(null);
-  const [emailValue, setEmailValue] = useState(null);
-  const [messageValue, setMessageValue] = useState(null);
-  const [subjValue, setSubjValue] = useState(null);
 
-  function handleChangeName(e) {
-    setNameValue(e.target.value);
+  function sendEmail(e) {
+    console.log('asd');
+    console.log(e.target);
+    emailjs
+      .sendForm(
+        'service_5h73s1k',
+        'template_z88i85p',
+        e.target,
+        'user_kmeI4iamdbCkpu8MDf6Rc'
+      )
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => console.log(err));
   }
-
-  function handleChangeEmail(e) {
-    setEmailValue(e.target.value);
-  }
-
-  function handleChangeSubject(e) {
-    setSubjValue(e.target.value);
-  }
-
-  function handleChangeMessage(e) {
-    setMessageValue(e.target.value);
-  }
-
-  function handleSubmit(e) {
-    alert(
-      `Name: ${nameValue}\nEmail: ${emailValue}\nSubject: ${subjValue}\nMessage: ${messageValue}`
-    );
-    e.preventDefault();
-  }
-
   return (
     <>
       <Slide left duration={1000}>
         <div className="eight columns">
-          <form action="" method="post" id="contactForm" name="contactForm">
-            <fieldset>
-              <div>
-                <label htmlFor="contactName">
-                  Name <span className="required">*</span>
-                </label>
-                <input
-                  type="text"
-                  defaultValue=""
-                  size="35"
-                  id="contactName"
-                  name="contactName"
-                  onChange={handleChangeName}
-                />
-              </div>
+          <form id="contactForm" name="contactForm" onSubmit={sendEmail}>
+            <div>
+              <label>
+                Name <span className="required">*</span>
+              </label>
+              <input
+                type="text"
+                defaultValue=""
+                size="35"
+                id="contactName"
+                name="contactName"
+              />
+            </div>
 
-              <div>
-                <label htmlFor="contactEmail">
-                  Email <span className="required">*</span>
-                </label>
-                <input
-                  type="text"
-                  defaultValue=""
-                  size="35"
-                  id="contactEmail"
-                  name="contactEmail"
-                  onChange={handleChangeEmail}
-                />
-              </div>
+            <div>
+              <label>
+                Email <span className="required">*</span>
+              </label>
+              <input
+                type="text"
+                defaultValue=""
+                size="35"
+                id="contactEmail"
+                name="contactEmail"
+              />
+            </div>
 
-              <div>
-                <label htmlFor="contactSubject">Subject</label>
-                <input
-                  type="text"
-                  defaultValue=""
-                  size="35"
-                  id="contactSubject"
-                  name="contactSubject"
-                  onChange={handleChangeSubject}
-                />
-              </div>
+            <div>
+              <label>Subject</label>
+              <input
+                type="text"
+                defaultValue=""
+                size="35"
+                id="contactSubject"
+                name="contactSubject"
+              />
+            </div>
 
-              <div>
-                <label htmlFor="contactMessage">
-                  Message <span className="required">*</span>
-                </label>
-                <textarea
-                  cols="50"
-                  rows="15"
-                  id="contactMessage"
-                  name="contactMessage"
-                  onChange={handleChangeMessage}
-                ></textarea>
-              </div>
+            <div>
+              <label>
+                Message <span className="required">*</span>
+              </label>
+              <textarea
+                cols="50"
+                rows="15"
+                id="contactMessage"
+                name="contactMessage"
+              ></textarea>
+            </div>
 
-              <div>
-                <button className="submit" onSubmit={handleSubmit}>
-                  Submit
-                </button>
-                <span id="image-loader">
-                  <img alt="" src="images/loader.gif" />
-                </span>
-              </div>
-            </fieldset>
+            <div>
+              <button>Submit</button>
+              <span id="image-loader">
+                <img alt="" src="images/loader.gif" />
+              </span>
+            </div>
           </form>
 
           <div id="message-warning"> Error boy</div>
