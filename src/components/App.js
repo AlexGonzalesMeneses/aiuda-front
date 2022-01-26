@@ -1,9 +1,16 @@
 import React from 'react';
 import { initialize, pageview } from 'react-ga';
-import { navigationMock, profileMock, socialMock, skillMock} from '../../tools/MockData';
+import {
+  formMock,
+  navigationMock,
+  profileMock,
+  socialMock,
+  skillMock,
+} from '../../tools/MockData';
 import About from '../pages/about/About';
 import Header from './layouts/Header';
 import Footer from './layouts/Footer';
+import Contact from '../pages/contact/Contact';
 import Skill from '../pages/skill/Skill';
 
 function App() {
@@ -14,7 +21,8 @@ function App() {
     <div className="App">
       <Header {...navigationMock} />
       <About {...profileMock} />
-      <Skill{...skillMock}/>
+      <Contact {...formMock} />
+      <Skill {...skillMock} />
       <Footer {...socialMock} />
     </div>
   );
