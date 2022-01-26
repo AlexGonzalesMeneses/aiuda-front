@@ -1,7 +1,22 @@
 import React from 'react';
 import { Fade } from '@stahl.luke/react-reveal';
+import useFetch from '../../hooks/useFetch';
 
-function About(profile) {
+function About() {
+  const {
+    error,
+    loading,
+    data: profile,
+  } = useFetch('http://localhost:4000/profile');
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   const {
     name,
     profilepic,

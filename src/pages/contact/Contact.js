@@ -2,9 +2,23 @@ import React from 'react';
 import { Fade } from '@stahl.luke/react-reveal';
 import Form from '../../components/forms/Form';
 import AsideContact from '../../components/aside/AsideContact';
+import useFetch from '../../hooks/useFetch';
 
-function Contact(formData) {
-  const { message } = formData;
+function Contact() {
+  const {
+    error,
+    loading,
+    data: profile,
+  } = useFetch('http://localhost:4000/profile');
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <section id="contact">
       <Fade bottom duration={1000}>
@@ -16,13 +30,13 @@ function Contact(formData) {
           </div>
 
           <div className="ten columns">
-            <p className="lead">{message}</p>
+            <p className="lead">{profile.message}</p>
           </div>
         </div>
       </Fade>
       <div className="row">
         <Form />
-        <AsideContact {...formData} />
+        <AsideContact {...profile} />
       </div>
     </section>
   );

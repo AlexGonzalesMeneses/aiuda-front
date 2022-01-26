@@ -1,20 +1,37 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { Fade } from '@stahl.luke/react-reveal';
+import useFetch from '../../hooks/useFetch';
 
-function WorkExperience(props) {
-  const educationList = props.work.map(work => {
-    return (
-      <div key={work.company}>
-        <h3>{work.company}</h3>
-        <p className="info">
-          {work.title} <span>&bull;</span>
-          <em className="date">{work.years}</em>
-        </p>
-        <p>{work.description}</p>
-      </div>
-    );
-  });
+function WorkExperience() {
+  const {
+    error,
+    loading,
+    data: works,
+  } = useFetch('http://localhost:4000/works');
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  const educationList = works.map(
+    ({ id, company, title, years, description }) => {
+      return (
+        <div key={id}>
+          <h3>{company}</h3>
+          <p className="info">
+            {title} <span>&bull;</span>
+            <em className="date">{years}</em>
+          </p>
+          <p>{description}</p>
+        </div>
+      );
+    }
+  );
 
   return (
     <section id="resume">
