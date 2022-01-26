@@ -1,14 +1,10 @@
 /* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import { Fade } from '@stahl.luke/react-reveal';
 
 function WorkExperience(props) {
-  const educationList = props.work.map(work =>{
-    console.log(work);
-    console.log(work.company);
-    console.log(work['company']);
-    return(
+  const educationList = props.work.map(work => {
+    return (
       <div key={work.company}>
         <h3>{work.company}</h3>
         <p className="info">
@@ -17,21 +13,9 @@ function WorkExperience(props) {
         </p>
         <p>{work.description}</p>
       </div>
-    )
-  })
+    );
+  });
 
-  const educationItem = (
-    <>
-      <div>
-        <h3>tile</h3>
-        <p className="info">
-          master <span>&bull;</span>
-          <em className="date">fecha</em>
-        </p>
-        <p>descripción</p>
-      </div>
-    </>
-  );
   return (
     <section id="resume">
       <Fade duration={1000}>
