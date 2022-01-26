@@ -1,6 +1,7 @@
 import React from 'react';
 import { initialize, pageview } from 'react-ga';
 import {
+  formMock,
   navigationMock,
   profileMock,
   socialMock,
@@ -10,6 +11,7 @@ import {
 import About from '../pages/about/About';
 import Header from './layouts/Header';
 import Footer from './layouts/Footer';
+import Contact from '../pages/contact/Contact';
 import Skill from '../pages/skill/Skill';
 import Portafolio from '../pages/portafolio/Portafolio';
 
@@ -23,6 +25,7 @@ function App() {
       <About {...profileMock} />
       <Skill {...skillMock} />
       <Portafolio {...portafolioMock} />
+      <Contact {...formMock} />
       <Footer {...socialMock} />
     </div>
   );

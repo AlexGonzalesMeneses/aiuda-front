@@ -1,14 +1,30 @@
 import React from 'react';
+import { Fade } from '@stahl.luke/react-reveal';
+import Form from '../../components/forms/Form';
+import AsideContact from '../../components/aside/AsideContact';
 
-function Contact() {
+function Contact(formData) {
+  const { message } = formData;
   return (
-    <div className="contact">
-      <h1>Contact</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur,
-        quisquam.
-      </p>
-    </div>
+    <section id="contact">
+      <Fade bottom duration={1000}>
+        <div className="row section-head">
+          <div className="two columns header-col">
+            <h1>
+              <span>Get In Touch.</span>
+            </h1>
+          </div>
+
+          <div className="ten columns">
+            <p className="lead">{message}</p>
+          </div>
+        </div>
+      </Fade>
+      <div className="row">
+        <Form />
+        <AsideContact {...formData} />
+      </div>
+    </section>
   );
 }
 

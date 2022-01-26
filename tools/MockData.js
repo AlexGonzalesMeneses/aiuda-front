@@ -147,4 +147,20 @@ const portafolioMock = {
   ],
 };
 
-export { navigationMock, profileMock, socialMock, skillMock, portafolioMock };
+const formMock = {
+  name: 'Wisin y Yandel',
+  street: 'Calle de la Alameda',
+  city: 'Madrid',
+  state: 'Madrid',
+  zip: '28001',
+  phone: '+34 654 765 432',
+  email: 'wisin_yandel@mail.com',
+};
+export {
+  navigationMock,
+  profileMock,
+  socialMock,
+  skillMock,
+  portafolioMock,
+  formMock,
+};
