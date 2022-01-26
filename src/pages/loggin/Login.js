@@ -1,14 +1,14 @@
-/* eslint-disable no-unused-vars */
-import { func } from 'prop-types';
 import React, { useState } from 'react';
 import './StyleLogin.css';
 
 function Login() {
-  const acceptedUserName = 'wisin@yandel.com';
+  // const acceptedUserName = 'wisin@yandel.com';
+  const acceptedUserName = 'asd';
   const acceptedPassword = 'asd';
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [condition, setCondition] = useState(false);
+  const [condition, setCondition] = useState(true);
+  const [isloggedin, setIsloggedin] = useState(false);
 
   function toogleLoginForm() {
     setCondition(!condition);
@@ -16,17 +16,27 @@ function Login() {
       reset();
     }
   }
+  function exitEditMode() {
+    setIsloggedin(false);
+  }
+
   function handleSubmit() {
     if (username == acceptedUserName && acceptedPassword == password) {
-      alert('Welcome Wisin y Yandel');
+      setIsloggedin(true);
+      setCondition(!condition);
     } else {
       alert('Acces deny');
+      reset();
     }
+  }
+  function shpwEditMode() {
+    alert('edit');
   }
   function reset() {
     setUsername('');
     setPassword('');
   }
+
   const form = (
     <div className="loginForm">
       <form onSubmit={handleSubmit} className="form">
@@ -58,9 +68,13 @@ function Login() {
     </div>
   );
 
+  const editButton = <button onClick={shpwEditMode}>Edit</button>;
+  const signoutButton = <button onClick={exitEditMode}> Sign out</button>;
+  const signinButton = <button onClick={toogleLoginForm}>🔑 Login</button>;
   return (
     <div className="loggin">
-      <button onClick={toogleLoginForm}>🔑 Login</button>
+      {isloggedin ? signoutButton : signinButton}
+      {isloggedin ? editButton : null}
       {condition ? form : null}
     </div>
   );
