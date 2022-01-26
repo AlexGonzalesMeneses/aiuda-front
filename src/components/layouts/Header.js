@@ -2,9 +2,24 @@ import React from 'react';
 import { Fade } from '@stahl.luke/react-reveal';
 import ParticlesBg from 'particles-bg';
 import Login from '../../pages/loggin/Login';
+import useFetch from '../../hooks/useFetch';
 
-function Header(navigation) {
-  const { project, github, name, description } = navigation;
+function Header() {
+  const {
+    error,
+    loading,
+    data: profile,
+  } = useFetch('http://localhost:4000/profile');
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  const { project, github, name, description } = profile;
   return (
     <header id="home">
       <ParticlesBg type="circle" bg={true} />

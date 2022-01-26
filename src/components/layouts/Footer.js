@@ -1,10 +1,24 @@
 import React from 'react';
 import { Fade } from '@stahl.luke/react-reveal';
+import useFetch from '../../hooks/useFetch';
 
-function Footer(networkSocial) {
-  const { social } = networkSocial;
-  const networks = social.map(({ name, url, className }) => (
-    <li key={name}>
+function Footer() {
+  const {
+    error,
+    loading,
+    data: social,
+  } = useFetch('http://localhost:4000/social');
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  const networks = social.map(({ id, url, className }) => (
+    <li key={id}>
       <a href={url}>
         <i className={className}></i>
       </a>
