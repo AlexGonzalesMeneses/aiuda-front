@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Edit from '../editMode/edit';
 import './StyleLogin.css';
 
 function Login() {
@@ -7,8 +8,9 @@ function Login() {
   const acceptedPassword = 'asd';
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [condition, setCondition] = useState(true);
+  const [condition, setCondition] = useState(false);
   const [isloggedin, setIsloggedin] = useState(false);
+  const [editmode, setEditmode] = useState(false);
 
   function toogleLoginForm() {
     setCondition(!condition);
@@ -29,8 +31,8 @@ function Login() {
       reset();
     }
   }
-  function shpwEditMode() {
-    alert('edit');
+  function togleEditMode() {
+    setEditmode(!editmode);
   }
   function reset() {
     setUsername('');
@@ -68,7 +70,7 @@ function Login() {
     </div>
   );
 
-  const editButton = <button onClick={shpwEditMode}>Edit</button>;
+  const editButton = <button onClick={togleEditMode}>Edit</button>;
   const signoutButton = <button onClick={exitEditMode}> Sign out</button>;
   const signinButton = <button onClick={toogleLoginForm}>🔑 Login</button>;
   return (
@@ -76,6 +78,7 @@ function Login() {
       {isloggedin ? signoutButton : signinButton}
       {isloggedin ? editButton : null}
       {condition ? form : null}
+      {editmode? <Edit/>:null}
     </div>
   );
 }

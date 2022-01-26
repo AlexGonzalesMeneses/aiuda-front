@@ -1,10 +1,12 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { Fade } from '@stahl.luke/react-reveal';
-
+import useFetch from '../../hooks/useFetch.js';
 import ProgressBar from './progress.jsx';
 import './StyleSkill.css';
-import useFetch from '../../hooks/useFetch.js';
+
+
+
 function Skill() {
   const {
     error,
