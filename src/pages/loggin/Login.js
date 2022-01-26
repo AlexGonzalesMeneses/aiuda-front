@@ -28,36 +28,34 @@ function Login() {
     setPassword('');
   }
   const form = (
-    <>
-      <div className="loginForm">
-        <form onSubmit={handleSubmit} className="form">
-          <h3 className="tittleForm">Email address</h3>
-          <input
-            className="inputText"
-            type="text"
-            value={username}
-            placeholder="email@example.com"
-            onChange={({ target }) => setUsername(target.value)}
-          />
-          <h3 className="tittleForm">Password</h3>
-          <input
-            className="inputText"
-            type="password"
-            value={password}
-            placeholder="Password"
-            onChange={({ target }) => setPassword(target.value)}
-          />
-        </form>
-        <div className="buttons">
-          <button onClick={toogleLoginForm} className="button cancel">
-            Cancel
-          </button>
-          <button onClick={handleSubmit} className="button signin">
-            Sign in
-          </button>
-        </div>
+    <div className="loginForm">
+      <form onSubmit={handleSubmit} className="form">
+        <h3 className="tittleForm">Email address</h3>
+        <input
+          className="inputText"
+          type="text"
+          value={username}
+          placeholder="email@example.com"
+          onChange={({ target }) => setUsername(target.value)}
+        />
+        <h3 className="tittleForm">Password</h3>
+        <input
+          className="inputText"
+          type="password"
+          value={password}
+          placeholder="Password"
+          onChange={({ target }) => setPassword(target.value)}
+        />
+      </form>
+      <div className="buttons">
+        <button onClick={toogleLoginForm} className="button cancel">
+          Cancel
+        </button>
+        <button onClick={handleSubmit} className="button signin">
+          Sign in
+        </button>
       </div>
-    </>
+    </div>
   );
 
   return (
