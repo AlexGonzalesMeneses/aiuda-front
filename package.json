@@ -10,7 +10,7 @@
     "build": "webpack --config webpack.config.prod.js",
     "start:prod": "http-server ./build",
     "server": "json-server ./db.json --watch --port 4000",
-    "start": "run-p start:dev server",
+    "start": "run-p start:dev",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
