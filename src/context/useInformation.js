@@ -10,6 +10,8 @@ export default function useInformation() {
     loading: false,
     workModal: false,
     workElement: null,
+    skillModal: false,
+    skillElement: null,
   });
 
   const removeWork = id => {
@@ -27,12 +29,32 @@ export default function useInformation() {
     setState({ ...state, workModal: false, works: [...state.works, newWork] });
   };
 
+  const addSkill = skill => {
+    const newSkill = {
+      id: Date.now(),
+      ...skill,
+    };
+    setState({
+      ...state,
+      skillModal: false,
+      skills: [newSkill, ...state.skills],
+    });
+  };
+
   const openWorkModal = () => {
     setState({ ...state, workModal: true });
   };
 
   const clearWorkElement = () => {
     setState({ ...state, workElement: null });
+  };
+
+  const openSkillModal = () => {
+    setState({ ...state, skillModal: true });
+  };
+
+  const clearSkillElement = () => {
+    setState({ ...state, skillElement: null });
   };
 
   const setWorkElement = payload => {
@@ -43,11 +65,28 @@ export default function useInformation() {
     });
   };
 
+  const setSkillElement = payload => {
+    setState({
+      ...state,
+      skillModal: true,
+      skillElement: payload,
+    });
+  };
+
   const updateWork = work => {
     setState({
       ...state,
       works: state.works.map(item => (item.id === work.id ? work : item)),
       workModal: false,
+    });
+  };
+
+  const updateSkill = skill => {
+    console.log(skill);
+    setState({
+      ...state,
+      skills: state.skills.map(item => (item.id === skill.id ? skill : item)),
+      skillModal: false,
     });
   };
 
@@ -75,5 +114,10 @@ export default function useInformation() {
     openWorkModal,
     removeProject,
     removeSkill,
+    addSkill,
+    clearSkillElement,
+    openSkillModal,
+    setSkillElement,
+    updateSkill,
   };
 }

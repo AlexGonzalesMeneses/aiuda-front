@@ -28,16 +28,21 @@ const Container = Styled.div`
   }
 `;
 
-const ProgressBar = ({ value, max, color, width, text, id }) => {
-  const { state, removeSkill } = useContext(AppContext);
+const ProgressBar = ({ value, max, color, width, name, id }) => {
+  const { state, removeSkill, setSkillElement } = useContext(AppContext);
 
   return (
     <Container color={color} width={width}>
-      <span>{text + '\t'}</span>
+      <span>{name + '\t'}</span>
       <progress value={value} max={max} />
       <span>{(value / max) * 100}%</span>
       {state.username && (
-        <button onClick={() => removeSkill(id)}>Delete</button>
+        <>
+          <button onClick={() => removeSkill(id)}>Delete</button>
+          <button onClick={() => setSkillElement({ id, name, value })}>
+            Edit
+          </button>
+        </>
       )}
     </Container>
   );
@@ -49,7 +54,7 @@ ProgressBar.propTypes = {
   max: PropTypes.number,
   color: PropTypes.string,
   width: PropTypes.string,
-  text: PropTypes.string,
+  name: PropTypes.string,
 };
 
 ProgressBar.defaultProps = {
