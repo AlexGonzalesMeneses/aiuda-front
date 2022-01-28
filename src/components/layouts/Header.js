@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Fade } from '@stahl.luke/react-reveal';
 import ParticlesBg from 'particles-bg';
-import Login from '../../pages/loggin/Login';
 import useFetch from '../../hooks/useFetch';
+import AppContext from '../../context/AppContext';
 
 function Header() {
   const {
@@ -11,6 +11,8 @@ function Header() {
     data: profile,
   } = useFetch('http://localhost:4000/profile');
 
+  const { state, setState } = useContext(AppContext);
+
   if (error) {
     return <div>Error: {error.message}</div>;
   }
@@ -18,6 +20,15 @@ function Header() {
   if (loading) {
     return <div>Loading...</div>;
   }
+
+  const handleLogin = () => {
+    setState(prev => ({ ...prev, loginModal: true }));
+  };
+
+  const handleLogout = () => {
+    setState(prev => ({ ...prev, username: '' }));
+    localStorage.setItem('user', '');
+  };
 
   const { project, github, name, description } = profile;
   return (
@@ -68,10 +79,15 @@ function Header() {
               Contact
             </a>
           </li>
-
-          <li>
-            <Login />
-          </li>
+          {state.username ? (
+            <li>
+              <button onClick={handleLogout}>Logout</button>
+            </li>
+          ) : (
+            <li>
+              <button onClick={handleLogin}>Login</button>
+            </li>
+          )}
         </ul>
       </nav>
 

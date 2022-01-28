@@ -1,37 +1,23 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Fade } from '@stahl.luke/react-reveal';
-import useFetch from '../../hooks/useFetch';
+import WorkItem from '../../components/work/WorkItem';
+import AppContext from '../../context/AppContext';
+import WorkModal from '../../components/modals/work/WorkModal';
 
 function WorkExperience() {
-  const {
-    error,
-    loading,
-    data: works,
-  } = useFetch('http://localhost:4000/works');
+  const { state, setState, loadWorks } = useContext(AppContext);
 
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  }
+  useEffect(() => {
+    loadWorks();
+  }, []);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  const educationList = works.map(
-    ({ id, company, title, years, description }) => {
-      return (
-        <div key={id}>
-          <h3>{company}</h3>
-          <p className="info">
-            {title} <span>&bull;</span>
-            <em className="date">{years}</em>
-          </p>
-          <p>{description}</p>
-        </div>
-      );
-    }
-  );
+  const handleAdd = () => {
+    setState({
+      ...state,
+      workModal: true,
+    });
+  };
 
   return (
     <section id="resume">
@@ -40,13 +26,26 @@ function WorkExperience() {
           <div className="three columns header-col">
             <h1>
               <span>Work</span>
+              {state.username && <button onClick={handleAdd}>Add Work</button>}
             </h1>
           </div>
         </div>
 
         <div className="nine columns main-col">
           <div className="row item">
-            <div className="twelve columns">{educationList}</div>
+            <div className="twelve columns">
+              {state.works.map(({ id, company, title, years, description }) => (
+                <WorkItem
+                  key={id}
+                  id={id}
+                  company={company}
+                  title={title}
+                  years={years}
+                  description={description}
+                />
+              ))}
+              <WorkModal />
+            </div>
           </div>
         </div>
       </Fade>

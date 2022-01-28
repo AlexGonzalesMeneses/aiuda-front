@@ -78,22 +78,55 @@
       "id": 12,
       "name": "Objective-C",
       "value": "10"
+    },
+    {
+      "id": 13,
+      "name": "skill13",
+      "value": 13
+    },
+    {
+      "id": 14,
+      "name": "skill14",
+      "value": 14
+    },
+    {
+      "id": 15,
+      "name": "skill15",
+      "value": 15
+    },
+    {
+      "id": 16,
+      "name": "skill16",
+      "value": 16
+    },
+    {
+      "id": 17,
+      "name": "skill17",
+      "value": 17
+    },
+    {
+      "id": 18,
+      "name": "skill18",
+      "value": 18
+    },
+    {
+      "id": 19,
+      "name": "skill19",
+      "value": 19
+    },
+    {
+      "id": 20,
+      "name": "skill20",
+      "value": 20
     }
   ],
   "works": [
     {
-      "id": 1,
-      "company": "Fundación Jala",
-      "title": "Software Engineer",
-      "years": "November 2015 - Present",
-      "description": "Full-stack developer training"
-    },
-    {
-      "id": 2,
-      "company": "Sony Music",
-      "title": "Software Engineer",
-      "years": "January 2015 - November 2015",
-      "description": "Full-stack developer training"
+      "id": 1643378460169,
+      "company": "Company",
+      "title": "Developer",
+      "years": "2017 - 2018",
+      "description": "This is a descripiton"
     }
   ],
   "social": [
