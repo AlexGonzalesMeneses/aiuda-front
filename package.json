@@ -3,21 +3,21 @@
   "version": "1.0.0",
   "description": "Project about cv resume",
   "main": "index.js",
-  "homepage": "AlexGonzalesMeneses.github.io/react-portfolio",
+  "homepage":"alexgonzalesmeneses.github.io/aiuda-frontend",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:dev": "webpack serve --config webpack.config.dev.js",
-    "build": "webpack --config webpack.config.dev.js",
-    "start:prod": "webpack serve --config webpack.config.dev.js",
+    "build": "webpack --config webpack.config.prod.js",
+    "start:prod": "http-server ./build",
     "server": "json-server ./db.json --watch --port 4000",
-    "start": "webpack serve --config webpack.config.dev.js",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "start": "run-p start:dev server"
   },
   "repository": {
     "type": "git",
     "url": "http://gitlab.fundacion-jala.org/dev33/frontend-training/wisin-y-yandel-soft.git"
   },
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build",
   "keywords": [],
   "author": "Wisin y Yandel",
   "license": "ISC",
