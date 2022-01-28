@@ -1,29 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Fade } from '@stahl.luke/react-reveal';
 import Zmage from 'react-zmage';
-import useFetch from '../../hooks/useFetch';
+import AppContext from '../../context/AppContext';
 
 function Portafolio() {
-  const {
-    error,
-    loading,
-    data: projects,
-  } = useFetch('http://localhost:4000/projects');
+  const { state, removeProject } = useContext(AppContext);
 
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  }
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  const projectsListJSX = projects.map(({ id, title, image }) => {
+  const projectsListJSX = state.projects.map(({ id, title, image }) => {
     return (
       <div key={id} className="columns portfolio-item">
         <div className="item-wrap">
           <Zmage alt={title} src={image} />
           <div style={{ textAlign: 'center' }}>{title}</div>
+          {state.username && (
+            <button onClick={() => removeProject(id)}>Delete</button>
+          )}
         </div>
       </div>
     );

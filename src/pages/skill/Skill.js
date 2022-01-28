@@ -16,7 +16,7 @@ function Skill() {
           <ul className="skillList">
             {state.skills.map(({ id, value, name }) => (
               <li key={id}>
-                <ProgressBar value={parseInt(value)} text={name} />
+                <ProgressBar value={parseInt(value)} text={name} id={id} />
               </li>
             ))}
           </ul>

@@ -78,21 +78,6 @@ export default {
       value: '20',
     },
     {
-      id: 12,
-      name: 'Objective-C',
-      value: '10',
-    },
-    {
-      id: 13,
-      name: 'skill13',
-      value: 13,
-    },
-    {
-      id: 14,
-      name: 'skill14',
-      value: 14,
-    },
-    {
       id: 15,
       name: 'skill15',
       value: 15,

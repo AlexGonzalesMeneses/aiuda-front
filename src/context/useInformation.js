@@ -51,6 +51,19 @@ export default function useInformation() {
     });
   };
 
+  const removeProject = id => {
+    setState({
+      ...state,
+      projects: state.projects.filter(project => project.id !== id),
+    });
+  };
+
+  const removeSkill = id => {
+    setState({
+      ...state,
+      skills: state.skills.filter(skill => skill.id !== id),
+    });
+  };
   return {
     state,
     setState,
@@ -60,5 +73,7 @@ export default function useInformation() {
     updateWork,
     clearWorkElement,
     openWorkModal,
+    removeProject,
+    removeSkill,
   };
 }

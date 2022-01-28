@@ -1,6 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Styled from "styled-components";
+import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
+import Styled from 'styled-components';
+import AppContext from '../../context/AppContext';
 
 const Container = Styled.div`
   progress {
@@ -27,29 +28,35 @@ const Container = Styled.div`
   }
 `;
 
-const ProgressBar = ({ value, max, color, width, text }) => {
+const ProgressBar = ({ value, max, color, width, text, id }) => {
+  const { state, removeSkill } = useContext(AppContext);
+
   return (
     <Container color={color} width={width}>
-		<span>{text+"\t"}</span>
+      <span>{text + '\t'}</span>
       <progress value={value} max={max} />
       <span>{(value / max) * 100}%</span>
+      {state.username && (
+        <button onClick={() => removeSkill(id)}>Delete</button>
+      )}
     </Container>
   );
 };
 
 ProgressBar.propTypes = {
+  id: PropTypes.number.isRequired,
   value: PropTypes.number.isRequired,
   max: PropTypes.number,
   color: PropTypes.string,
   width: PropTypes.string,
-  text: PropTypes.string
+  text: PropTypes.string,
 };
 
 ProgressBar.defaultProps = {
   max: 100,
-  color: "lightBlue",
-  width: "400px",
-  text: "skill"
+  color: 'lightBlue',
+  width: '400px',
+  text: 'skill',
 };
 
 export default ProgressBar;
