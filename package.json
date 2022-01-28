@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:dev": "webpack serve --config webpack.config.dev.js",
-    "build": "webpack --config webpack.config.prod.js",
+    "build": "webpack --config webpack.config.dev.js",
     "start:prod": "http-server ./build",
     "server": "json-server ./db.json --watch --port 4000",
     "start": "run-p start:dev",
