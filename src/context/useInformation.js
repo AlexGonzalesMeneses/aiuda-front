@@ -12,6 +12,8 @@ export default function useInformation() {
     workElement: null,
     skillModal: false,
     skillElement: null,
+    portfolioModal: false,
+    portfolioElement: null,
   });
 
   const removeWork = id => {
@@ -41,6 +43,18 @@ export default function useInformation() {
     });
   };
 
+  const addPortfolio = portfolio => {
+    const newPortfolio = {
+      id: Date.now(),
+      ...portfolio,
+    };
+    setState({
+      ...state,
+      portfolioModal: false,
+      projects: [newPortfolio, ...state.projects],
+    });
+  };
+
   const openWorkModal = () => {
     setState({ ...state, workModal: true });
   };
@@ -55,6 +69,14 @@ export default function useInformation() {
 
   const clearSkillElement = () => {
     setState({ ...state, skillElement: null });
+  };
+
+  const openPortfolioModal = () => {
+    setState({ ...state, portfolioModal: true });
+  };
+
+  const clearPortfolioElement = () => {
+    setState({ ...state, portfolioElement: null });
   };
 
   const setWorkElement = payload => {
@@ -82,7 +104,6 @@ export default function useInformation() {
   };
 
   const updateSkill = skill => {
-    console.log(skill);
     setState({
       ...state,
       skills: state.skills.map(item => (item.id === skill.id ? skill : item)),
@@ -119,5 +140,8 @@ export default function useInformation() {
     openSkillModal,
     setSkillElement,
     updateSkill,
+    addPortfolio,
+    openPortfolioModal,
+    clearPortfolioElement,
   };
 }

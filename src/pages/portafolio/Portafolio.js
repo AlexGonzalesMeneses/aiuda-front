@@ -2,9 +2,10 @@ import React, { useContext } from 'react';
 import { Fade } from '@stahl.luke/react-reveal';
 import Zmage from 'react-zmage';
 import AppContext from '../../context/AppContext';
+import PortfolioModal from '../../components/modals/portfolio/PortfolioModal';
 
 function Portafolio() {
-  const { state, removeProject } = useContext(AppContext);
+  const { state, removeProject, setState } = useContext(AppContext);
 
   const projectsListJSX = state.projects.map(({ id, title, image }) => {
     return (
@@ -27,13 +28,26 @@ function Portafolio() {
           <div className="row">
             <div className="twelve columns collapsed">
               <h1>Check Out Some of My Works.</h1>
-
+              {state.username && (
+                <button
+                  onClick={() =>
+                    setState({
+                      ...state,
+                      portfolioElement: null,
+                      portfolioModal: true,
+                    })
+                  }
+                >
+                  Add Project
+                </button>
+              )}
               <div
                 id="portfolio-wrapper"
                 className="bgrid-quarters s-bgrid-thirds cf"
               >
                 {projectsListJSX}
               </div>
+              <PortfolioModal />
             </div>
           </div>
         </Fade>
