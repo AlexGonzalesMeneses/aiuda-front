@@ -3,11 +3,7 @@ import PropTypes from 'prop-types';
 import AppContext from '../../context/AppContext';
 
 export default function WorkItem({ id, company, title, years, description }) {
-  const { state, removeWork } = useContext(AppContext);
-
-  const handleDelete = () => {
-    removeWork(id);
-  };
+  const { state, removeWork, setWorkElement } = useContext(AppContext);
 
   return (
     <>
@@ -17,7 +13,18 @@ export default function WorkItem({ id, company, title, years, description }) {
         <em className="date">{years}</em>
       </p>
       <p>{description}</p>
-      {state.username && <button onClick={handleDelete}>Delete</button>}
+      {state.username && (
+        <>
+          <button onClick={() => removeWork(id)}>Delete</button>
+          <button
+            onClick={() =>
+              setWorkElement({ id, company, title, years, description })
+            }
+          >
+            Edit
+          </button>
+        </>
+      )}
     </>
   );
 }

@@ -13,18 +13,16 @@ import LoginModal from './modals/login/LoginModal';
 function App() {
   const value = useInformation();
   return (
-    <>
-      <AppContext.Provider value={value}>
-        <Header />
-        <About />
-        <Skill />
-        <WorkExperience />
-        <Portafolio />
-        <Contact />
-        <Footer />
-        <LoginModal />
-      </AppContext.Provider>
-    </>
+    <AppContext.Provider value={value}>
+      <Header />
+      <About />
+      <Skill />
+      <WorkExperience />
+      <Portafolio />
+      <Contact />
+      <Footer />
+      <LoginModal />
+    </AppContext.Provider>
   );
 }
 

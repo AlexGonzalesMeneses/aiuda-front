@@ -1,0 +1,253 @@
+export default {
+  presentation: {
+    product: 'Frontend Task Fundation',
+    github:
+      'http://gitlab.fundacion-jala.org/dev33/frontend-training/wisin-y-yandel-soft.git',
+    name: 'Wisin y Yandel',
+    description: 'Software Engineer',
+  },
+  profile: {
+    name: 'Wisin y Yandel',
+    description: 'Software Engineer',
+    profilepic:
+      'https://avatars0.githubusercontent.com/u/56905853?s=460&u=f9f8b8d8f9f8b8d8f9f8b8d8f9f8b8d8f9f8b8d8&v=4',
+    email: 'wisin_yandel@mail.com',
+    phone: '123456789',
+    street: 'Calle falsa 123',
+    city: 'Ciudad falsa',
+    state: 'Estado falso',
+    zip: '12345',
+    bio: 'Software Engineer',
+    message:
+      'Software Engineer at Frontend Task Fundation in Ciudad falsa, Estado falso',
+  },
+  skills: [
+    {
+      id: 1,
+      name: 'Python',
+      value: '90',
+    },
+    {
+      id: 2,
+      name: 'Java',
+      value: '80',
+    },
+    {
+      id: 3,
+      name: 'JavaScript',
+      value: '70',
+    },
+    {
+      id: 4,
+      name: 'HTML',
+      value: '90',
+    },
+    {
+      id: 5,
+      name: 'CSS',
+      value: '80',
+    },
+    {
+      id: 6,
+      name: 'C#',
+      value: '70',
+    },
+    {
+      id: 7,
+      name: 'C++',
+      value: '60',
+    },
+    {
+      id: 8,
+      name: 'C',
+      value: '50',
+    },
+    {
+      id: 9,
+      name: 'PHP',
+      value: '40',
+    },
+    {
+      id: 10,
+      name: 'Ruby',
+      value: '30',
+    },
+    {
+      id: 11,
+      name: 'Swift',
+      value: '20',
+    },
+    {
+      id: 12,
+      name: 'Objective-C',
+      value: '10',
+    },
+    {
+      id: 13,
+      name: 'skill13',
+      value: 13,
+    },
+    {
+      id: 14,
+      name: 'skill14',
+      value: 14,
+    },
+    {
+      id: 15,
+      name: 'skill15',
+      value: 15,
+    },
+    {
+      id: 16,
+      name: 'skill16',
+      value: 16,
+    },
+    {
+      id: 17,
+      name: 'skill17',
+      value: 17,
+    },
+    {
+      id: 18,
+      name: 'skill18',
+      value: 18,
+    },
+    {
+      id: 19,
+      name: 'skill19',
+      value: 19,
+    },
+    {
+      id: 20,
+      name: 'skill20',
+      value: 20,
+    },
+  ],
+  works: [
+    {
+      id: 1643378460169,
+      company: 'Company',
+      title: 'Developer',
+      years: '2017 - 2018',
+      description: 'This is a descripiton',
+    },
+  ],
+  social: [
+    {
+      id: 1,
+      name: 'Github',
+      url: 'http://facebook.com',
+      className: 'fa fa-facebook',
+    },
+    {
+      id: 2,
+      name: 'Twitter',
+      url: 'http://twitter.com',
+      className: 'fa fa-twitter',
+    },
+    {
+      id: 3,
+      name: 'Linkedin',
+      url: 'http://linkedin.com',
+      className: 'fa fa-linkedin',
+    },
+    {
+      id: 4,
+      name: 'instagram',
+      url: 'http://instagram.com',
+      className: 'fa fa-instagram',
+    },
+    {
+      id: 5,
+      name: 'github',
+      url: 'https://github.com/alexgonzalesmeneses',
+      className: 'fa fa-github',
+    },
+  ],
+  projects: [
+    {
+      id: 1,
+      title: 'Wisin y Yandel',
+      category: 'My Travel Blog for my post-university travels',
+      image: 'https://i.imgur.com/qkdpN.png',
+      url: 'http://wisin-yandel.herokuapp.com/',
+    },
+    {
+      id: 2,
+      title: 'Fury Fighting Gear',
+      category: '(offline now) A fighting gear company I started',
+      image: 'https://i.imgur.com/qkdpN.png',
+      url: 'http://www.timbakerdev.com',
+    },
+    {
+      id: 3,
+      title: 'Original Thai Food',
+      category: 'Website I built for a restaurant I like in Thailand',
+      image: 'https://i.imgur.com/qkdpN.png',
+      url: 'http://www.timbakerdev.com/originalthaifood.github.io',
+    },
+    {
+      id: 4,
+      title: 'Resume Website',
+      category: 'A React based resume website template',
+      image: 'https://i.imgur.com/qkdpN.png',
+      url: 'http://www.timbakerdev.com',
+    },
+    {
+      id: 5,
+      title: 'Smirkspace',
+      category: '(MVP Only) A React and Meteor based chat University project.',
+      image: 'https://i.imgur.com/qkdpN.png',
+      url: 'http://www.smirkspace.com',
+    },
+    {
+      id: 6,
+      title: 'Canadian Wanderlust',
+      category: 'My Travel Blog for my post-university travels',
+      image: 'https://i.imgur.com/qkdpN.png',
+      url: 'https://www.canadianwanderlust.com',
+    },
+    {
+      id: 7,
+      title: 'Fury Fighting Gear',
+      category: '(offline now) A fighting gear company I started',
+      image: 'https://i.imgur.com/qkdpN.png',
+      url: 'http://www.timbakerdev.com',
+    },
+    {
+      id: 8,
+      title: 'Original Thai Food',
+      category: 'Website I built for a restaurant I like in Thailand',
+      image: 'https://i.imgur.com/qkdpN.png',
+      url: 'http://www.timbakerdev.com/originalthaifood.github.io',
+    },
+    {
+      id: 9,
+      title: 'Original Thai Food',
+      category: 'Website I built for a restaurant I like in Thailand',
+      image: 'https://i.imgur.com/qkdpN.png',
+      url: 'http://www.timbakerdev.com/originalthaifood.github.io',
+    },
+    {
+      id: 10,
+      title: 'Resume Website',
+      category: 'A React based resume website template',
+      image: 'https://i.imgur.com/qkdpN.png',
+      url: 'http://www.timbakerdev.com',
+    },
+    {
+      id: 11,
+      title: 'Smirkspace',
+      category: '(MVP Only) A React and Meteor based chat University project.',
+      image: 'https://i.imgur.com/qkdpN.png',
+      url: 'http://www.smirkspace.com',
+    },
+    {
+      id: 12,
+      title: 'Canadian Wanderlust',
+      category: 'My Travel Blog for my post-university travels',
+      image: 'https://i.imgur.com/qkdpN.png',
+      url: 'https://www.canadianwanderlust.com',
+    },
+  ],
+};

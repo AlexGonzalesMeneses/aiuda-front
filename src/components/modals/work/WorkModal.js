@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import AppContext from '../../../context/AppContext';
 import '../../../styles/Modal.css';
@@ -14,7 +14,7 @@ const customStyles = {
 Modal.setAppElement('#root');
 
 export default function WorkModal() {
-  const { state, setState, addWork } = useContext(AppContext);
+  const { state, setState, addWork, updateWork } = useContext(AppContext);
   const [company, setCompany] = useState('');
   const [title, setTitle] = useState('');
   const [years, setYears] = useState('');
@@ -22,9 +22,31 @@ export default function WorkModal() {
 
   const handleAddWork = event => {
     event.preventDefault();
-    addWork({ company, title, years, description });
+    state.workElement
+      ? updateWork({
+          id: state.workElement.id,
+          company,
+          title,
+          years,
+          description,
+        })
+      : addWork({ company, title, years, description });
     reset();
   };
+
+  useEffect(() => {
+    if (state.workElement) {
+      setCompany(state.workElement.company);
+      setTitle(state.workElement.title);
+      setYears(state.workElement.years);
+      setDescription(state.workElement.description);
+    } else {
+      setCompany('');
+      setTitle('');
+      setYears('');
+      setDescription('');
+    }
+  }, [state.workElement]);
 
   function reset() {
     setCompany('');

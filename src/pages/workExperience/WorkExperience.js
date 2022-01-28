@@ -1,22 +1,15 @@
 /* eslint-disable react/prop-types */
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { Fade } from '@stahl.luke/react-reveal';
 import WorkItem from '../../components/work/WorkItem';
 import AppContext from '../../context/AppContext';
 import WorkModal from '../../components/modals/work/WorkModal';
 
 function WorkExperience() {
-  const { state, setState, loadWorks } = useContext(AppContext);
-
-  useEffect(() => {
-    loadWorks();
-  }, []);
+  const { state, setState } = useContext(AppContext);
 
   const handleAdd = () => {
-    setState({
-      ...state,
-      workModal: true,
-    });
+    setState({ ...state, workElement: null, workModal: true });
   };
 
   return (

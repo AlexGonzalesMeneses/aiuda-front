@@ -1,42 +1,18 @@
 import { useState } from 'react';
+import db from '../db';
 
 export default function useInformation() {
   const [state, setState] = useState({
+    ...db,
     loginModal: false,
     username: localStorage.getItem('user') || '',
-    works: [],
     error: null,
     loading: false,
     workModal: false,
+    workElement: null,
   });
 
-  const loadWorks = () => {
-    fetch('http://localhost:4000/works')
-      .then(res => res.json())
-      .then(res => {
-        setState({
-          ...state,
-          works: res,
-          loading: false,
-        });
-      })
-      .catch(error => {
-        setState({
-          ...state,
-          error,
-          loading: false,
-        });
-      });
-  };
-
   const removeWork = id => {
-    fetch(`http://localhost:4000/works/${id}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }).catch(console.log);
-
     setState({
       ...state,
       works: state.works.filter(work => work.id !== id),
@@ -48,30 +24,41 @@ export default function useInformation() {
       id: Date.now(),
       ...work,
     };
+    setState({ ...state, workModal: false, works: [...state.works, newWork] });
+  };
 
-    fetch('http://localhost:4000/works', {
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-      body: JSON.stringify(newWork),
-    })
-      .then(() => {
-        setState({
-          ...state,
-          workModal: false,
-          works: [newWork, ...state.works],
-        });
-      })
-      .catch(console.log);
+  const openWorkModal = () => {
+    setState({ ...state, workModal: true });
+  };
+
+  const clearWorkElement = () => {
+    setState({ ...state, workElement: null });
+  };
+
+  const setWorkElement = payload => {
+    setState({
+      ...state,
+      workModal: true,
+      workElement: payload,
+    });
+  };
+
+  const updateWork = work => {
+    setState({
+      ...state,
+      works: state.works.map(item => (item.id === work.id ? work : item)),
+      workModal: false,
+    });
   };
 
   return {
     state,
     setState,
-    loadWorks,
     removeWork,
     addWork,
+    setWorkElement,
+    updateWork,
+    clearWorkElement,
+    openWorkModal,
   };
 }
